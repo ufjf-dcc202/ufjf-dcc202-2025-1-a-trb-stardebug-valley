@@ -1,6 +1,6 @@
 const terrenoPlantacao = document.getElementById('plantacao');
 const listaLoja = document.getElementById('loja');
-const ferramentas = document.getElementById('ferramentas');
+const ferramentas = document.getElementsByClassName('ferramenta');
 
 const tamanhoPlantacao = 144;
 

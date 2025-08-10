@@ -57,7 +57,7 @@ li {
     background-color: aliceblue;
 }
 
-#ferramentas {
+#lista_ferramentas {
     grid-column: 2;
     grid-row: 3;
 
@@ -68,17 +68,21 @@ li {
     /* width: 20px; */
 }
 
-#ferramentas > li {
+#lista_ferramentas > li {
     margin: 0 10px;
     border-radius: 50%;
 }
 
-#ferramentas > li > img{
+#lista_ferramentas > li > img{
     width: 55px;
     height: 55px;
     border-radius: 50%;
     /* background-color: beige; */
     /* grid-column: 1 / 4; */
+}
+
+.ferramenta:hover {
+    border: 5px solid lightsteelblue;
 }
 
 #relogio {
