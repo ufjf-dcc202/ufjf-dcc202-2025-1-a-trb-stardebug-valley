@@ -14,7 +14,7 @@ body {
 
 li {
     list-style: none;
-    border: 5px solid brown;
+    border: 3px solid brown;
 }
 
 #plantacao {
@@ -63,21 +63,17 @@ li {
 
     /* background-color: chocolate; */
     display: flex;
-    justify-content: space-around;
-    height: 65px;
-    /* width: 20px; */
+    justify-content: center;
+    height: 50px;
+    width: 280px;
 }
 
 #lista_ferramentas > li {
     margin: 0 10px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-}
-
-#lista_ferramentas > li > img{
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    /* background-color: beige; */
+    background-color: beige;
     /* grid-column: 1 / 4; */
 }
 
