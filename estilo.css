@@ -43,25 +43,29 @@ li {
     grid-column: 1;
     grid-row: 2;
 
-    /* background-color: aquamarine; */
-    /* justify-content: space-evenly; */
-    height: 180px;
-    width: 50px;
+    height: 70px;
+    width: 60px;    
 }
 
-#loja > li {
+#loja > li{
     margin: 10px 0;
+    border-radius: 50%;
+}
+
+#loja > li > img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: aliceblue;
+}
+
+.semente:hover {
+    border: 5px solid lightsteelblue;
 }
 
 #lista_ferramentas {
     grid-column: 2;
     grid-row: 3;
 
-    /* background-color: chocolate; */
     display: flex;
     justify-content: center;
     height: 60px;
@@ -71,15 +75,12 @@ li {
 #lista_ferramentas > li {
     margin: 0 10px;
     border-radius: 50%;
-    
 }
 
 #lista_ferramentas > li > img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    /* background-color: beige; */
-    /* grid-column: 1 / 4; */
 }
 
 .ferramenta:hover {
@@ -87,10 +88,19 @@ li {
 }
 
 #relogio {
-    background-color: crimson;
     width: 80px;
     height: 80px;
+    margin: 0 10px;
     border-radius: 50%;
     grid-column: 3;
     grid-row: 1;
+}
+
+#relogio > img{
+    width: 50;
+    height: 50;
+}
+
+.relogio:hover{
+    border: 5px solid lightsteelblue;
 }
