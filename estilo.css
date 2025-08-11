@@ -21,6 +21,11 @@ li {
     grid-row: 1;
 }
 
+#dinheiro{
+    grid-column: 1;
+    grid-row: 1;
+}
+
 /* ================================================================= */
 
 #plantacao {
@@ -101,6 +106,12 @@ li {
 #relogio {
     grid-column: 3;
     grid-row: 1;
-    width: 80px;
+    box-sizing: border-box;
+    
+}
+
+#relogio > img {
     height: 80px;
+    width: 80px;
+    display: table-column;
 }
