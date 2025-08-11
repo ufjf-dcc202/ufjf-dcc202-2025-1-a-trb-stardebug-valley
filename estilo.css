@@ -106,12 +106,18 @@ li {
 #relogio {
     grid-column: 3;
     grid-row: 1;
-    box-sizing: border-box;
-    
+
 }
 
 #relogio > img {
     height: 80px;
     width: 80px;
+    margin: 0 10px;
+    border-radius: 50%;
+    border: 5px solid brown;
     display: table-column;
+}
+
+#relogio > img:hover{
+    border-color: lightsteelblue;
 }
