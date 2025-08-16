@@ -13,6 +13,7 @@ const diaElement = relogio.querySelector('span');
 const tamanhoPlantacao = 144;
 const dinheiro_inicial = 100;
 const dia_inicial = 1;
+
 let gameState = {
     dinheiro: dinheiro_inicial,
     dia: dia_inicial,
@@ -72,9 +73,25 @@ function criaPlantacao(){
     return ePlantacao;
 }
 
-// terrenoVetor.forEach(lote => {
-//     lote.addEventListener('click', clicaTerreno);
-// });
+terrenoVetor.forEach(lote => {
+    lote.addEventListener('click', clicaTerreno);
+    switch (gameState.mao){
+        case 'beterraba':
+            break;
+        case 'cenoura':
+            break;
+        case 'melao':
+            break;
+        case 'regador':
+            break;
+        case 'machado':
+            break;
+        case 'picareta':
+            break;
+        case 'enxada':
+            break;
+    }
+});
 
 // function clicaTerreno(evento){
 //     const posicao = Number(evento.target.dataset.posicao);
@@ -89,3 +106,12 @@ relogio.addEventListener('click', ()=>{
 function atualizaTela(){
     diaElement.textContent = gameState.dia;
 }
+
+const itens = document.querySelectorAll('Button');
+
+itens.forEach(item => { 
+    item.addEventListener('click', () => { 
+        gameState.mao = item.textContent;
+        console.log(gameState.mao);
+    });
+});
