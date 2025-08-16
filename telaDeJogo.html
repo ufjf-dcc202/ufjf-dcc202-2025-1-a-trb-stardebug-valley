@@ -8,22 +8,44 @@
     <script src="logica.js" type="module"></script>
 </head>
 <body>
-    <!-- <h1>StardeBug Valley</h1> -->
-    <div id="loja">
-        <button class="semente"><img src="imagens/Radish_Seeds.png" alt="Semente de rabanete"></button>
-        <button class="semente"><img src="imagens/Carrot_Seeds.png" alt="Semente de Cenoura"></button>
-        <button class="semente"><img src="imagens/Melon_Seeds.png" alt="Semente de Melão"></button>
-    </div>
+    <h1 id="titulo">StardeBug Valley</h1>
+    <h2 id="dinheiro">Dinheiro: $<span>100</span></h2>
+    <ol id="loja">
+        <li class="semente" data-semente="beterraba">
+            <img src="imagens/Radish_Seeds.png" alt="Semente de rabanete">
+            <span>Semente de Beterraba</span>
+        </li>
+        <li class="semente" data-semente="cenoura">
+            <img src="imagens/Carrot_Seeds.png" alt="Semente de Cenoura">
+            <span>Semente de Cenoura</span>
+        </li>
+        <li class="semente" data-semente="melao">
+            <img src="imagens/Melon_Seeds.png" alt="Semente de Melão">
+            <span>Semente de Melão</span>
+        </li>
+    </ol>
 
-    <ol id="plantacao" img ></ol>
+    <ol id="plantacao"></ol>
 
-    <div id="lista_ferramentas">
-        <button class="ferramenta"><img src="imagens/Watering_Can.png" alt="Regador"></button>
-        <button class="ferramenta"><img src="imagens/Stone_Axe_JE2_BE2.png" alt="Machado"></button>
-        <button class="ferramenta"><img src="imagens/Stone_Pickaxe_JE2_BE2.png" alt="Picareta"></button>
-        <button class="ferramenta"><img src="imagens/Stone_Hoe_JE2_BE2.png" alt="Enxada"></button>
-    </div>
+    <ol id="lista_ferramentas">
+        <li class="ferramenta" data-ferramenta="regador">
+            <img src="imagens/Watering_Can.png" alt="Regador">
+            <span>Regador</span>
+        </li>
+        <li class="ferramenta" data-ferramenta="regador">
+            <img src="imagens/Stone_Axe_JE2_BE2.png" alt="Machado">
+            <span>Machado</span>
+        </li>
+        <li class="ferramenta" data-ferramenta="regador">
+            <img src="imagens/Stone_Pickaxe_JE2_BE2.png" alt="Picareta">
+            <span>Picareta</span>
+        </li>
+        <li class="ferramenta" data-ferramenta="regador">
+            <img src="imagens/Stone_Hoe_JE2_BE2.png" alt="Enxada">
+            <span>Enxada</span>
+        </li>
+    </ol>
 
-    <button id="relogio"><img src="imagens/Clock_JE3_BE3.png" alt="Relogio"></button>
+    <div id="relogio"><img src="imagens/Clock_JE3_BE3.png" alt="Relogio">Dia: <span>1</span></div>
 </body>
 </html>
