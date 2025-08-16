@@ -40,19 +40,19 @@ function criaPlantacao(){
 terrenoVetor.forEach(lote => {
     lote.addEventListener('click', clicaTerreno);
     switch (gameState.mao){
-        case 'beterraba':
+        case 'Semente de Beterraba':
             break;
-        case 'cenoura':
+        case 'Semente de Cenoura':
             break;
-        case 'melao':
+        case 'Semente de Melão':
             break;
-        case 'regador':
+        case 'Regador':
             break;
-        case 'machado':
+        case 'Machado':
             break;
-        case 'picareta':
+        case 'Picareta':
             break;
-        case 'enxada':
+        case 'Enxada':
             break;
     }
 });
