@@ -1,4 +1,4 @@
-class Planta {
+export default class Planta {
     constructor(nome, tempoPorEstagio, totalEstagios, valorVenda) {
         this.nome = nome;
         this.tempoPorEstagio = tempoPorEstagio;

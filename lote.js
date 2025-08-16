@@ -1,4 +1,4 @@
-class Lote {
+export default class Lote {
     constructor(elemento) {
         this.elemento = elemento;
 
