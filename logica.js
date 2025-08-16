@@ -17,7 +17,7 @@ const dia_inicial = 1;
 let gameState = {
     dinheiro: dinheiro_inicial,
     dia: dia_inicial,
-    mao: null,
+    mao: 'enxada',
 }
 
 const eCriaPlantacao = criaPlantacao();
@@ -73,25 +73,25 @@ function criaPlantacao(){
     return ePlantacao;
 }
 
-terrenoVetor.forEach(lote => {
-    lote.addEventListener('click', clicaTerreno);
-    switch (gameState.mao){
-        case 'beterraba':
-            break;
-        case 'cenoura':
-            break;
-        case 'melao':
-            break;
-        case 'regador':
-            break;
-        case 'machado':
-            break;
-        case 'picareta':
-            break;
-        case 'enxada':
-            break;
-    }
-});
+// terrenoVetor.forEach(lote => {
+//     lote.addEventListener('click', clicaTerreno);
+//     switch (gameState.mao){
+//         case 'beterraba':
+//             break;
+//         case 'cenoura':
+//             break;
+//         case 'melao':
+//             break;
+//         case 'regador':
+//             break;
+//         case 'machado':
+//             break;
+//         case 'picareta':
+//             break;
+//         case 'enxada':
+//             break;
+//     }
+// });
 
 // function clicaTerreno(evento){
 //     const posicao = Number(evento.target.dataset.posicao);
@@ -111,7 +111,7 @@ const itens = document.querySelectorAll('Button');
 
 itens.forEach(item => { 
     item.addEventListener('click', () => { 
-        gameState.mao = item.textContent;
+        gameState.mao = item.dataset.item;
         console.log(gameState.mao);
     });
 });
