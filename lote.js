@@ -4,7 +4,7 @@ export default class Lote {
 
         this.elementoIncial = Math.floor(Math.random() * 2);
 
-        if(elementoInicial === 0)
+        if(this.elementoInicial === 0)
             this.estado = 'arvore';
         else
             this.estado = 'pedra';
