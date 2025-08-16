@@ -10,6 +10,10 @@ class Planta {
             this.iconesEstagios.push(`imagens/${nome}_Stage_${i}.png`);
         }
     }
+
+    getTotalEstagios() {
+        return this.totalEstagios;
+    }
 }
 
 class Rabanete extends Planta {
