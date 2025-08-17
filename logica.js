@@ -52,7 +52,7 @@ function criaLote(){
             case 'regador':
                 novoLote.regar();
                 break;
-            case 'rabanete':
+            case 'beterraba':
                 novoLote.plantar(new Rabanete());
                 break;
             case 'cenoura':
@@ -124,7 +124,7 @@ itens.forEach(item => {
         if (itemJaSelecionado) {
             itemJaSelecionado.classList.remove('selecionado');
         }
-        
+
         gameState.mao = item.dataset.item;
         
         if(itemJaSelecionado != item)
