@@ -1,5 +1,5 @@
 import Lote from './lote.js'; 
-// import Planta from './planta.js'; 
+import { Rabanete, Cenoura, Melao } from './planta.js';
 
 const terrenoPlantacao = document.getElementById('plantacao');
 const listaLoja = document.getElementsByClassName('semente');
@@ -100,6 +100,11 @@ function criaPlantacao(){
 
 relogio.addEventListener('click', ()=>{
     gameState.dia++;
+
+    todosOsLotes.forEach(lote => {
+        lote.avancarDia();
+    });
+
     atualizaTela();
 });
 
@@ -110,7 +115,15 @@ function atualizaTela(){
 const itens = document.querySelectorAll('Button');
 
 itens.forEach(item => { 
-    item.addEventListener('click', () => { 
+    item.addEventListener('click', () => {
+        const itemJaSelecionado = document.querySelector('.selecionado');
+        
+        if (itemJaSelecionado) {
+            itemJaSelecionado.classList.remove('selecionado');
+        }
+        
+        item.classList.add('selecionado');
+        
         gameState.mao = item.dataset.item;
         console.log(gameState.mao);
     });
