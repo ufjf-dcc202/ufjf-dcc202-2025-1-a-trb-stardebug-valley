@@ -1,16 +1,21 @@
+// import Planta from './planta.js';
+
 export default class Lote {
     constructor(elemento) {
         this.elemento = elemento;
 
-        this.elementoIncial = Math.floor(Math.random() * 2);
+        this.elementoInicial = Math.floor(Math.random() * 2);
 
         if(this.elementoInicial === 0)
             this.estado = 'arvore';
         else
             this.estado = 'pedra';
+
         this.planta = null;
         this.estagio = 0;
         this.regado = false;
+
+        this.atualizarVisual();
     }
 
     arar() {
@@ -39,18 +44,20 @@ export default class Lote {
     }
 
     avancarDia() {
-        if(this.estagio == this.planta.totalEstagios()) {
-            estado = 'pronta';
-        }
-        else if(this.estado === 'plantado' && this.regado) {
-            this.estagio++;
-            this.regado = false;
-        }
-        else {
-            this.estado = 'vazio';
-            this.planta = null;
-            this.estagio = 0;
-            this.regado = false;
+        if(this.planta) {
+            if(this.estagio >= this.planta.totalEstagios) {
+                this.estado = 'prontoParaColher';
+            }
+            else if(this.estado === 'plantado' && this.regado) {
+                this.estagio++;
+                this.regado = false;
+            }
+            else {
+                this.estado = 'vazio';
+                this.planta = null;
+                this.estagio = 0;
+                this.regado = false;
+            }
         }
 
         this.atualizarVisual();
@@ -63,7 +70,7 @@ export default class Lote {
 
             this.estado = 'vazio';
             this.planta = null;
-            this.estagioCrescimento = 0;
+            this.estagio = 0;
             
             this.atualizarVisual();
 
@@ -72,18 +79,29 @@ export default class Lote {
     }
     
     cortarArvore() {
-        if(estado === 'arvore') {
+        if(this.estado === 'arvore') {
             this.estado = 'vazio';
+            this.atualizarVisual();
         }
     }
 
     tirarPedra() {
-        if(estado === 'pedra') {
+        if(this.estado === 'pedra') {
             this.estado = 'vazio';
+            this.atualizarVisual();
         }
     }
 
     atualizarVisual() {
+
+        // limpa antes de tudo
+        this.elemento.innerHTML = ''; 
+        this.elemento.className = ''; 
+        this.elemento.classList.add(this.estado);
+
+        if (this.regado) {
+            this.elemento.classList.add('regado');
+        }
 
         if(this.estado === 'arvore')
             this.elemento.innerHTML = `<img src="imagens/Arvore1.png" alt="arvore">`;
