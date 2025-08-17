@@ -2,13 +2,14 @@ import Lote from './lote.js';
 import { Rabanete, Cenoura, Melao } from './planta.js';
 
 const terrenoPlantacao = document.getElementById('plantacao');
-const listaLoja = document.getElementsByClassName('semente');
-const ferramentas = document.getElementsByClassName('ferramenta');
 
 const todosOsLotes = [];
 
 const relogio = document.getElementById('relogio');
 const diaElement = relogio.querySelector('span');
+
+const dinheiro = document.getElementById('dinheiro');
+const dinheiroElement = dinheiro.querySelector('span');
 
 const tamanhoPlantacao = 144;
 const dinheiro_inicial = 100;
@@ -17,11 +18,11 @@ const dia_inicial = 1;
 let gameState = {
     dinheiro: dinheiro_inicial,
     dia: dia_inicial,
-    mao: 'enxada',
+    mao: '',
 }
 
-const eCriaPlantacao = criaPlantacao();
-const terrenoVetor = atualizaPlantacao();
+criaPlantacao();
+atualizaPlantacao();
 
 function atualizaPlantacao(){
     for(let i = 0; i < tamanhoPlantacao; i++) {
@@ -52,17 +53,27 @@ function criaLote(){
             case 'regador':
                 novoLote.regar();
                 break;
-            case 'beterraba':
-                novoLote.plantar(new Rabanete());
+            case 'rabanete':
+                if(gameState.dinheiro >= 15) {
+                gameState.dinheiro = gameState.dinheiro - novoLote.plantar(new Rabanete());
+                atualizaDinheiro();
+                }
                 break;
             case 'cenoura':
-                novoLote.plantar(new Cenoura());
+                if(gameState.dinheiro >= 35) {
+                    gameState.dinheiro = gameState.dinheiro - novoLote.plantar(new Cenoura());
+                    atualizaDinheiro();
+                }
                 break;
             case 'melao':
-                novoLote.plantar(new Melao());
+                if(gameState.dinheiro >= 55) {
+                    gameState.dinheiro = gameState.dinheiro - novoLote.plantar(new Melao());
+                    atualizaDinheiro();
+                }
                 break;
             case null:
-                novoLote.colher();
+                gameState.dinheiro = gameState.dinheiro + novoLote.colher();
+                atualizaDinheiro();
                 break;
         }
     });
@@ -76,31 +87,6 @@ function criaPlantacao(){
     return ePlantacao;
 }
 
-// terrenoVetor.forEach(lote => {
-//     lote.addEventListener('click', clicaTerreno);
-//     switch (gameState.mao){
-//         case 'beterraba':
-//             break;
-//         case 'cenoura':
-//             break;
-//         case 'melao':
-//             break;
-//         case 'regador':
-//             break;
-//         case 'machado':
-//             break;
-//         case 'picareta':
-//             break;
-//         case 'enxada':
-//             break;
-//     }
-// });
-
-// function clicaTerreno(evento){
-//     const posicao = Number(evento.target.dataset.posicao);
-//     console.log("click! " + posicao);
-// }
-
 relogio.addEventListener('click', ()=>{
     gameState.dia++;
 
@@ -113,6 +99,10 @@ relogio.addEventListener('click', ()=>{
 
 function atualizaTela(){
     diaElement.textContent = gameState.dia;
+}
+
+function atualizaDinheiro() {
+    dinheiroElement.textContent = gameState.dinheiro;
 }
 
 const itens = document.querySelectorAll('Button');

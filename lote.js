@@ -4,12 +4,14 @@ export default class Lote {
     constructor(elemento) {
         this.elemento = elemento;
 
-        this.elementoInicial = Math.floor(Math.random() * 2);
+        this.elementoInicial = Math.floor(Math.random() * 3);
 
         if(this.elementoInicial === 0)
             this.estado = 'arvore';
-        else
+        else if(this.elementoInicial === 1)
             this.estado = 'pedra';
+        else
+            this.estado = 'vazio';
 
         this.planta = null;
         this.estagio = 0;
@@ -19,8 +21,6 @@ export default class Lote {
     }
 
     arar() {
-        this.colher();
-
         if(this.estado === 'vazio') {
             this.estado = 'arado';
             this.atualizarVisual();
@@ -28,20 +28,18 @@ export default class Lote {
     }
 
     plantar(planta) {
-        this.colher();
-        
         if(this.estado === 'arado') {
             this.estado = 'plantado';
             
             this.planta = planta;
             this.estagio = 0;
             this.atualizarVisual();
+            return this.planta.valorCompra;
         }
+        return 0;
     }
 
     regar() {
-        this.colher();
-        
         if(this.estado === 'plantado') {
             this.regado = true;
 
@@ -85,8 +83,6 @@ export default class Lote {
     }
     
     cortarArvore() {
-        this.colher();
-        
         if(this.estado === 'arvore') {
             this.estado = 'vazio';
             this.atualizarVisual();
@@ -94,8 +90,6 @@ export default class Lote {
     }
 
     tirarPedra() {
-        this.colher();
-        
         if(this.estado === 'pedra') {
             this.estado = 'vazio';
             this.atualizarVisual();
