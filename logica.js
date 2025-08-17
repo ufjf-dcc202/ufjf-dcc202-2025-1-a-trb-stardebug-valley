@@ -61,6 +61,9 @@ function criaLote(){
             case 'melao':
                 novoLote.plantar(new Melao());
                 break;
+            case null:
+                novoLote.colher();
+                break;
         }
     });
 
@@ -122,9 +125,13 @@ itens.forEach(item => {
             itemJaSelecionado.classList.remove('selecionado');
         }
         
-        item.classList.add('selecionado');
-        
         gameState.mao = item.dataset.item;
+        
+        if(itemJaSelecionado != item)
+            item.classList.add('selecionado');
+        else
+            gameState.mao = null;
+
         console.log(gameState.mao);
     });
 });
