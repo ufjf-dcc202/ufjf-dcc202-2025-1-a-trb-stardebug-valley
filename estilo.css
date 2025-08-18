@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url(/imagens/Parede_Verde.png);
+    background-image: url(imagens/Parede_Verde.png);
 
     display: grid;
     align-items: center;
