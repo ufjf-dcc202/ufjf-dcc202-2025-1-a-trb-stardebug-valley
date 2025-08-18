@@ -72,7 +72,7 @@ export default class Lote {
             
             let valorVenda = this.planta.valorVenda;
 
-            this.estado = 'vazio';
+            this.estado = 'arado';
             this.planta = null;
             this.estagio = 0;
             
@@ -80,6 +80,7 @@ export default class Lote {
 
             return valorVenda;
         }
+        return 0;
     }
     
     cortarArvore() {
