@@ -7,7 +7,6 @@ export class Planta {
         this.valorVenda = valorVenda;
 
         this.iconesEstagios = [];
-        // this.iconesEstagios.push(`imagens/${nome}_Seeds.png`);
 
         for (let i = 1; i <= totalEstagios; i++) {
             this.iconesEstagios.push(`imagens/${nome}_Stage_${i}.png`);

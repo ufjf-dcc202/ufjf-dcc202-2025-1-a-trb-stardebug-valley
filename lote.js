@@ -6,9 +6,9 @@ export default class Lote {
 
         this.elementoInicial = Math.floor(Math.random() * 3);
 
-        if(this.elementoInicial === 0)
+        if (this.elementoInicial === 0)
             this.estado = 'arvore';
-        else if(this.elementoInicial === 1)
+        else if (this.elementoInicial === 1)
             this.estado = 'pedra';
         else
             this.estado = 'vazio';
@@ -21,16 +21,16 @@ export default class Lote {
     }
 
     arar() {
-        if(this.estado === 'vazio') {
+        if (this.estado === 'vazio') {
             this.estado = 'arado';
             this.atualizarVisual();
         }
     }
 
     plantar(planta) {
-        if(this.estado === 'arado') {
+        if (this.estado === 'arado') {
             this.estado = 'plantado';
-            
+
             this.planta = planta;
             this.estagio = 0;
             this.atualizarVisual();
@@ -40,7 +40,7 @@ export default class Lote {
     }
 
     regar() {
-        if(this.estado === 'plantado') {
+        if (this.estado === 'plantado') {
             this.regado = true;
 
             this.atualizarVisual();
@@ -48,9 +48,9 @@ export default class Lote {
     }
 
     avancarDia() {
-        if(this.planta && this.estado === 'plantado') {
-            
-            if(this.regado)
+        if (this.planta && this.estado === 'plantado') {
+
+            if (this.regado)
                 this.estagio++;
             else {
                 this.estado = 'vazio';
@@ -60,7 +60,7 @@ export default class Lote {
 
             this.regado = false;
 
-            if(this.estagio >= this.planta.totalEstagios - 1)
+            if (this.estagio >= this.planta.totalEstagios - 1)
                 this.estado = 'prontoParaColher';
         }
 
@@ -69,29 +69,29 @@ export default class Lote {
 
     colher() {
         if (this.estado === 'prontoParaColher') {
-            
+
             let valorVenda = this.planta.valorVenda;
 
             this.estado = 'arado';
             this.planta = null;
             this.estagio = 0;
-            
+
             this.atualizarVisual();
 
             return valorVenda;
         }
         return 0;
     }
-    
+
     cortarArvore() {
-        if(this.estado === 'arvore') {
+        if (this.estado === 'arvore') {
             this.estado = 'vazio';
             this.atualizarVisual();
         }
     }
 
     tirarPedra() {
-        if(this.estado === 'pedra') {
+        if (this.estado === 'pedra') {
             this.estado = 'vazio';
             this.atualizarVisual();
         }
@@ -102,7 +102,7 @@ export default class Lote {
         this.elemento.className = '';
 
         if (this.estado === 'plantado' || this.estado === 'prontoParaColher') {
-            this.elemento.classList.add('arado'); 
+            this.elemento.classList.add('arado');
         } else {
             this.elemento.classList.add(this.estado);
         }
